@@ -1,6 +1,10 @@
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
+const {
+	ApolloServerPluginDrainHttpServer,
+} = require("@apollo/server/plugin/drainHttpServer");
+const http = require("http");
 const mongoose = require("mongoose");
 const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
@@ -8,11 +12,13 @@ const cors = require("cors");
 require("dotenv").config();
 async function startServer() {
 	const app = express();
+	const httpServer = http.createServer(app);
 	app.use(express.json());
 	app.use(cors());
 	const server = new ApolloServer({
 		typeDefs,
 		resolvers,
+		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 		context: ({ req }) => {
 			const token = req.headers.authorization || "";
 			try {

@@ -8,6 +8,7 @@ const http = require("http");
 const mongoose = require("mongoose");
 const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
+const Homepage = require("./HomePage");
 const cors = require("cors");
 require("dotenv").config();
 async function startServer() {
@@ -31,9 +32,7 @@ async function startServer() {
 		},
 	});
 	app.get("/", (req, res) => {
-		res.send(
-			"<h1>Server is running :--  to use service  please hit /graphql </h1>",
-		);
+		res.send(`${Homepage()}`);
 	});
 	await server.start();
 	app.use("/graphql", cors(), express.json(), expressMiddleware(server));

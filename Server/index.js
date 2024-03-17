@@ -23,7 +23,11 @@ async function startServer() {
 			}
 		},
 	});
-
+	app.get("/", (req, res) => {
+		res.send(
+			"<h1>Server is running :--  to use service  please hit /graphql </h1>",
+		);
+	});
 	await server.start();
 	server.applyMiddleware({ app });
 

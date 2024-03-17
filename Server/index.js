@@ -1,5 +1,6 @@
 const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
+const { ApolloServer } = require("@apollo/server");
+const { expressMiddleware } = require("@apollo/server/express4");
 const mongoose = require("mongoose");
 const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
@@ -29,7 +30,8 @@ async function startServer() {
 		);
 	});
 	await server.start();
-	server.applyMiddleware({ app });
+	app.use("/graphql", cors(), express.json(), expressMiddleware(server));
+	// server.applyMiddleware({ app });
 
 	const PORT = process.env.PORT || 3000;
 

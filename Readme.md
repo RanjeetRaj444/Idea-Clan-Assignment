@@ -46,23 +46,26 @@ The Social Media API is a Node.js application developed to simulate basic functi
 ### Queries and Mutations
 
 - Register a User:
+
   ```javascript
   mutation {
   registerUser(username: "exampleUser", email: "user@example.com", password: "password") {
-  id
-  username
-  email
+    id
+    username
+    email
   }
   }
   ```
+
 - Login a User:
 
   ```javascript
   mutation {
   loginUser(email: "user@example.com", password: "password") {
-  id
-  username
-  email
+    id
+    username
+    email
+    token
   }
   }
   ```
@@ -71,10 +74,10 @@ The Social Media API is a Node.js application developed to simulate basic functi
   ```javascript
   mutation {
   createPost(userId: "<USER_ID>", content: "This is a new post.") {
-  id
-  userId
-  content
-  }
+    id
+    userId
+    content
+   }
   }
   ```
 - Retrieve a User:

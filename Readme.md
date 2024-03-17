@@ -43,7 +43,7 @@ The Social Media API is a Node.js application developed to simulate basic functi
 - Access the GraphQL Playground at http://localhost:3000/graphql in your web browser.
 - Use the provided queries and mutations to interact with the API.
 
-### Example Queries and Mutations
+### Queries and Mutations
 
 - Register a User:
   ```javascript

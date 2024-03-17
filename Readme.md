@@ -4,6 +4,18 @@
 
 The Social Media API is a Node.js application developed to simulate basic functionalities of a social media platform. It allows users to register, authenticate, create posts, and retrieve user posts. The API utilizes Express.js for server setup, GraphQL for querying data, and follows an object-oriented approach for data modeling.
 
+# Use this templete for service
+
+Send a POST request to query this endpoint
+
+$ curl --request POST \
+ --header 'content-type: application/json' \
+ --url 'https://idea-clan-assignment-atca.onrender.com/graphql' \
+ --data '{"query":"query { \_\_typename }"}'
+
+- After visiting to the Url:-- https://idea-clan-assignment-atca.onrender.com/graphql
+  ![alt text](<Server/Screenshot (1630).png>)
+
 ## Features
 
 - User Registration and Authentication
@@ -11,6 +23,8 @@ The Social Media API is a Node.js application developed to simulate basic functi
 - Retrieving Posts
 - GraphQL Integration
 - Object-Oriented Design
+
+# To use in your local Stystem
 
 ## Requirements
 
